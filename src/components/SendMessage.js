@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import withChatkit from '../containers/WithChatkit';
 import media from '../styles/media';
 import * as colors from '../styles/colors';
 
@@ -33,21 +34,44 @@ const MessageInput = styled.input`
 `;
 
 class SendMessage extends Component {
+  state = {
+    message: '',
+  };
+
+  componentDidMount() {
+    const { chatkit } = this.props;
+    chatkit.connect().then((currentUser) => {
+      this.sendMessage = currentUser.sendMessage;
+    });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit called!');
+    const { message } = this.state;
+    this.sendMessage({
+      text: message,
+      roomId: process.env.REACT_APP_ROOM,
+    })
+      .then(() => this.setState({ message: '' }))
+      .catch((err) => {
+        console.log('message not sent!');
+      });
   };
-  handleChange = () => {
-    console.log('change called!');
+
+  handleChange = (e) => {
+    this.setState({ message: e.target.value });
   };
+
   render() {
+    const { message } = this.state;
     return (
       <StyledSendMessage>
         <SendMessageForm onSubmit={this.handleSubmit}>
           <MessageInput
             onChange={this.handleChange}
             placeholder="Type your message here and hit ENTER!"
-            typ="text"
+            value={message}
+            type="text"
           />
         </SendMessageForm>
       </StyledSendMessage>
@@ -55,4 +79,4 @@ class SendMessage extends Component {
   }
 }
 
-export default SendMessage;
+export default withChatkit(SendMessage);
