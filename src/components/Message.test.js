@@ -4,7 +4,7 @@ import Message from './Message';
 
 const props = {
   message: {
-    userId: ':userId',
+    sender: { name: ':senderName' },
     text: ':text',
   },
 };

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import withChatkit from '../containers/WithChatkit';
 import media from '../styles/media';
@@ -79,5 +80,11 @@ class SendMessage extends Component {
     );
   }
 }
+
+SendMessage.propTypes = {
+  chatkit: PropTypes.object.isRequired,
+};
+
+export { SendMessage };
 
 export default withChatkit(SendMessage);

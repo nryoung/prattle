@@ -2,7 +2,7 @@
 
 exports[`it renders 1`] = `
 <div
-  className="sc-bdVaJa gUUnkJ"
+  className="sc-bdVaJa bJNtdC"
 >
   <form
     className="sc-bwzfXH lejAfz"
@@ -12,6 +12,8 @@ exports[`it renders 1`] = `
       className="sc-htpNat dOsqdd"
       onChange={[Function]}
       placeholder="Type your message here and hit ENTER!"
+      type="text"
+      value=""
     />
   </form>
 </div>

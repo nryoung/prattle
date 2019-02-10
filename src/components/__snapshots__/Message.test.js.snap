@@ -7,7 +7,7 @@ exports[`it renders 1`] = `
   <div
     className="sc-bwzfXH haoZKa"
   >
-    :userId
+    :senderName
     :
   </div>
   <div
