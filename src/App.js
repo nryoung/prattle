@@ -6,8 +6,6 @@ import Title from './components/Title';
 import MessageList from './components/MessageList';
 import SendMessage from './components/SendMessage';
 
-import { MOCK_MESSAGES } from './mock_data';
-
 class App extends Component {
   render() {
     return (
@@ -15,7 +13,7 @@ class App extends Component {
         <GlobalStyle />
         <ChatkitContext.Provider value={Chatkit}>
           <Title />
-          <MessageList messages={MOCK_MESSAGES} />
+          <MessageList />
           <SendMessage />
         </ChatkitContext.Provider>
       </div>
