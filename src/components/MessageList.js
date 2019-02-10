@@ -27,6 +27,7 @@ class MessageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentUserId: null,
       messages: [],
     };
     this.lastMessage = React.createRef();
@@ -45,6 +46,7 @@ class MessageList extends Component {
           onMessage: (message) => {
             this.setState(
               {
+                currentUserId: currentUser.id,
                 messages: [...this.state.messages, message],
               },
               () => this.scrollToBottom()
@@ -60,11 +62,15 @@ class MessageList extends Component {
   }
 
   render() {
-    const { messages } = this.state;
+    const { messages, currentUserId } = this.state;
     return (
       <StyledMessageList>
-        {messages.map((message, index, array) => (
-          <Message key={message.id} message={message} />
+        {messages.map((message) => (
+          <Message
+            key={message.id}
+            message={message}
+            isOwnMessage={currentUserId === message.sender.id}
+          />
         ))}
         <div ref={this.lastMessage} />
       </StyledMessageList>

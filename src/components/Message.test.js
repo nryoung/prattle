@@ -7,6 +7,7 @@ const props = {
     sender: { name: ':senderName' },
     text: ':text',
   },
+  isOwnMessage: false,
 };
 
 it('it renders', () => {

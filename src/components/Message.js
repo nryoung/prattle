@@ -5,18 +5,30 @@ import * as colors from '../styles/colors';
 
 const StyledMessage = styled.div`
   flex: 1 1 100%;
-  margin: 0 0 16px 0;
+  margin-bottom: 16px;
+  ${(props) =>
+    props.isOwnMessage &&
+    `
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  `}
 `;
 
 const MessageUser = styled.div`
+  flex: 1 1 100%;
   margin-bottom: 8px;
+  ${(props) => props.isOwnMessage && 'text-align: right;'}
 `;
 
 const MessageTextWrapper = styled.div`
   display: inline-block;
   border-radius: 8px;
   word-break: break-word;
-  background-color: ${colors.acidWash};
+  ${(props) =>
+    props.isOwnMessage
+      ? `background-color: ${colors.purpleRain}`
+      : `background-color: ${colors.acidWash}`};
   padding: 8px;
 `;
 
@@ -24,10 +36,10 @@ const MessageText = styled.span`
   color: ${colors.pureWhite};
 `;
 
-const Message = ({ message, message: { sender } }) => (
-  <StyledMessage>
-    <MessageUser>{sender.name}:</MessageUser>
-    <MessageTextWrapper>
+const Message = ({ message, message: { sender }, isOwnMessage }) => (
+  <StyledMessage isOwnMessage={isOwnMessage}>
+    <MessageUser isOwnMessage={isOwnMessage}>{sender.name}:</MessageUser>
+    <MessageTextWrapper isOwnMessage={isOwnMessage}>
       <MessageText>{message.text}</MessageText>
     </MessageTextWrapper>
   </StyledMessage>
@@ -36,10 +48,12 @@ const Message = ({ message, message: { sender } }) => (
 Message.propTypes = {
   message: PropTypes.shape({
     sender: PropTypes.shape({
+      id: PropTypes.string,
       name: PropTypes.string,
     }).isRequired,
     text: PropTypes.string.isRequired,
   }).isRequired,
+  isOwnMessage: PropTypes.bool.isRequired,
 };
 
 export default Message;
