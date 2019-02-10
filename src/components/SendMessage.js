@@ -13,6 +13,7 @@ const StyledSendMessage = styled.div`
   align-items: center;
   justify-content: center;
   height: 56px;
+  background-color: ${colors.pureWhite};
 `;
 
 const SendMessageForm = styled.form`

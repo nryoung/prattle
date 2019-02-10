@@ -24,8 +24,16 @@ const StyledMessageList = styled.div`
 `;
 
 class MessageList extends Component {
-  state = {
-    messages: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      messages: [],
+    };
+    this.lastMessage = React.createRef();
+  }
+
+  scrollToBottom = () => {
+    window.scrollTo(0, this.lastMessage.current.offsetTop);
   };
 
   componentDidMount() {
@@ -35,22 +43,30 @@ class MessageList extends Component {
         roomId: process.env.REACT_APP_ROOM,
         hooks: {
           onMessage: (message) => {
-            this.setState({
-              messages: [...this.state.messages, message],
-            });
+            this.setState(
+              {
+                messages: [...this.state.messages, message],
+              },
+              () => this.scrollToBottom()
+            );
           },
         },
       });
     });
   }
 
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   render() {
     const { messages } = this.state;
     return (
       <StyledMessageList>
-        {messages.map((message) => (
+        {messages.map((message, index, array) => (
           <Message key={message.id} message={message} />
         ))}
+        <div ref={this.lastMessage} />
       </StyledMessageList>
     );
   }
