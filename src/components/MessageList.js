@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import withChatkit from '../containers/WithChatkit';
 import media from '../styles/media';
@@ -71,15 +70,5 @@ class MessageList extends Component {
     );
   }
 }
-
-MessageList.propTypes = {
-  messages: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      userId: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default withChatkit(MessageList);
