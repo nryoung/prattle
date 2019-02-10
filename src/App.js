@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ChatkitContext from './containers/ChatkitContext';
+import Chatkit from './chatkit';
 import GlobalStyle from './css';
 import Title from './components/Title';
 import MessageList from './components/MessageList';
@@ -11,9 +13,11 @@ class App extends Component {
     return (
       <div id="app">
         <GlobalStyle />
-        <Title />
-        <MessageList messages={MOCK_MESSAGES} />
-        <SendMessage />
+        <ChatkitContext.Provider value={Chatkit}>
+          <Title />
+          <MessageList messages={MOCK_MESSAGES} />
+          <SendMessage />
+        </ChatkitContext.Provider>
       </div>
     );
   }

@@ -24,9 +24,9 @@ const MessageText = styled.span`
   color: ${colors.pureWhite};
 `;
 
-const Message = ({ message }) => (
+const Message = ({ message, message: { sender } }) => (
   <StyledMessage>
-    <MessageUser>{message.userId}:</MessageUser>
+    <MessageUser>{sender.name}:</MessageUser>
     <MessageTextWrapper>
       <MessageText>{message.text}</MessageText>
     </MessageTextWrapper>
@@ -35,7 +35,9 @@ const Message = ({ message }) => (
 
 Message.propTypes = {
   message: PropTypes.shape({
-    userId: PropTypes.string.isRequired,
+    sender: PropTypes.shape({
+      name: PropTypes.string,
+    }).isRequired,
     text: PropTypes.string.isRequired,
   }).isRequired,
 };
