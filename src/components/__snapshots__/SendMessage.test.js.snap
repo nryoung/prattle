@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<div
+  className="sc-bdVaJa gUUnkJ"
+>
+  <form
+    className="sc-bwzfXH lejAfz"
+    onSubmit={[Function]}
+  >
+    <input
+      className="sc-htpNat dOsqdd"
+      onChange={[Function]}
+      placeholder="Type your message here and hit ENTER!"
+    />
+  </form>
+</div>
+`;
