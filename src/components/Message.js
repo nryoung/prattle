@@ -33,4 +33,11 @@ const Message = ({ message }) => (
   </StyledMessage>
 );
 
+Message.propTypes = {
+  message: PropTypes.shape({
+    userId: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 export default Message;

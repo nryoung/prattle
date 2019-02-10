@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import * as colors from '../styles/colors';
 import media from '../styles/media';
 import Message from './Message';
 
@@ -16,8 +15,10 @@ const StyledMessageList = styled.div`
     margin: 0 auto;
   `}
 
+  // Add this to hide scrollbars on chrome
+  // when using a non standard mouse on mac
   &::-webkit-scrollbar {
-    width: 0 !important; // Add this to hide scrollbars on chrome
+    width: 0;
   }
 `;
 
@@ -28,5 +29,15 @@ const MessageList = ({ messages }) => (
     ))}
   </StyledMessageList>
 );
+
+MessageList.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      userId: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default MessageList;
