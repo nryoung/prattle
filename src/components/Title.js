@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import * as colors from '../styles/colors';
 
 const StyledTitle = styled.div`
-  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
