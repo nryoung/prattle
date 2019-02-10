@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import Title from './Title';
+import GlobalStyle from './css';
+import Title from './components/Title';
 
 class App extends Component {
   render() {
     return (
       <div id="app">
+        <GlobalStyle />
         <Title />
       </div>
     );
