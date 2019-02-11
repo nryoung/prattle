@@ -2,10 +2,10 @@
 
 exports[`it renders 1`] = `
 <div
-  className="sc-bdVaJa feEqYr"
+  className="sc-bdVaJa hciYRu"
 >
   <div
-    className="sc-bwzfXH dAwvdJ"
+    className="sc-bwzfXH dXqCMg"
   >
      is typing!
   </div>

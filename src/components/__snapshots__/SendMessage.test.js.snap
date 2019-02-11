@@ -2,14 +2,14 @@
 
 exports[`it renders 1`] = `
 <div
-  className="sc-bdVaJa bJNtdC"
+  className="sc-bdVaJa ctXHea"
 >
   <form
     className="sc-bwzfXH lejAfz"
     onSubmit={[Function]}
   >
     <input
-      className="sc-htpNat dOsqdd"
+      className="sc-htpNat bdmXgv"
       onChange={[Function]}
       placeholder="Type your message here and hit ENTER!"
       type="text"
