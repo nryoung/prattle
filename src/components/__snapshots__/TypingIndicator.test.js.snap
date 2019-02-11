@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<div
+  className="sc-bdVaJa feEqYr"
+>
+  <div
+    className="sc-bwzfXH dAwvdJ"
+  >
+     is typing!
+  </div>
+</div>
+`;

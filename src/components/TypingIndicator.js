@@ -55,4 +55,6 @@ class TypingIndicator extends Component {
   }
 }
 
+export { TypingIndicator };
+
 export default withChatkit(TypingIndicator);
