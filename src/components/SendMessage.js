@@ -43,6 +43,7 @@ class SendMessage extends Component {
   componentDidMount() {
     const { chatkit } = this.props;
     chatkit.connect().then((currentUser) => {
+      this.currentUser = currentUser;
       this.sendMessage = currentUser.sendMessage;
     });
   }
@@ -61,7 +62,9 @@ class SendMessage extends Component {
   };
 
   handleChange = (e) => {
-    this.setState({ message: e.target.value });
+    this.setState({ message: e.target.value }, () => {
+      this.currentUser.isTypingIn({ roomId: process.env.REACT_APP_ROOM });
+    });
   };
 
   render() {
