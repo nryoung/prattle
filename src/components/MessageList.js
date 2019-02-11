@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import * as colors from '../styles/colors';
 import withChatkit from '../containers/WithChatkit';
 import media from '../styles/media';
 import Message from './Message';
@@ -10,6 +11,7 @@ const StyledMessageList = styled.div`
   flex-wrap: wrap;
   overflow-y: scroll;
   padding: 72px 16px 72px;
+  background-color: ${colors.offWhite};
 
   ${media.screenMediumUp`
     width: 600px;

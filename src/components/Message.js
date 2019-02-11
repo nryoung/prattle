@@ -27,8 +27,8 @@ const MessageTextWrapper = styled.div`
   word-break: break-word;
   ${(props) =>
     props.isOwnMessage
-      ? `background-color: ${colors.purpleRain}`
-      : `background-color: ${colors.acidWash}`};
+      ? `background-color: ${colors.redRoomRed}`
+      : `background-color: ${colors.softPeach}`};
   padding: 8px;
 `;
 

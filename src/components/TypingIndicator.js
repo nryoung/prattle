@@ -5,7 +5,7 @@ import withChatkit from '../containers/WithChatkit';
 
 const StyledTypingIndicator = styled.div`
   position: fixed;
-  bottom: 56px;
+  bottom: 58px;
   width: 100vw;
   max-width: 100%;
   text-align: center;
@@ -14,7 +14,9 @@ const StyledTypingIndicator = styled.div`
 const TypingIndicatorMessage = styled.div`
   display: inline-block;
   border-radius: 8px;
-  background-color: ${colors.miami};
+  border: 3px solid ${colors.paranormalGreen};
+  background-color: ${colors.forestBrown};
+  color: ${colors.pureWhite};
   padding: 8px;
   transition: opacity 500ms linear;
   opacity: ${(props) => (props.isTyping ? 1 : 0)};

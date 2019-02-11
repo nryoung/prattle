@@ -1,6 +1,7 @@
 export const pureWhite = '#FFFFFF';
-export const powersuit = '#FE2053';
-export const tronTurqouise = '#16E7E2';
-export const acidWash = '#3968CB';
-export const purpleRain = '#C97CD8';
-export const miami = '#FE68A8';
+export const offWhite = '#FAFAFA';
+export const paranormalGreen = '#6DDD60';
+export const forestBrown = '#553033';
+export const peaksGray = '#5E4E4E';
+export const redRoomRed = '#E71B27';
+export const softPeach = '#E1B0AE';

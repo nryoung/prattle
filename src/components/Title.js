@@ -9,13 +9,14 @@ const StyledTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.powersuit};
+  background-color: ${colors.paranormalGreen};
   height: 56px;
 `;
 
 const TitleLink = styled.a`
   font-size: 32px;
-  color: ${colors.pureWhite};
+  color: ${colors.forestBrown};
+  font-weight: 600;
   text-decoration: none;
 
   &:hover {

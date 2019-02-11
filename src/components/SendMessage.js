@@ -14,7 +14,7 @@ const StyledSendMessage = styled.div`
   align-items: center;
   justify-content: center;
   height: 56px;
-  background-color: ${colors.pureWhite};
+  background-color: ${colors.peaksGray};
 `;
 
 const SendMessageForm = styled.form`
@@ -26,7 +26,7 @@ const SendMessageForm = styled.form`
 `;
 
 const MessageInput = styled.input`
-  border: 4px solid ${colors.tronTurqouise};
+  border: 4px solid ${colors.paranormalGreen};
   height: 32px;
   width: 100%;
   box-sizing: border-box;
