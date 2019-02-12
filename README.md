@@ -1,68 +1,118 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Prattle
+======
+Prattle is a [Twin Peaks](https://en.wikipedia.org/wiki/Twin_Peaks) themed chat application Built in React. Prattle makes use of the [Chatkit SDK](https://pusher.com/chatkit).
 
-## Available Scripts
+## Check out a live version of Prattle here
 
-In the project directory, you can run:
+Table of Contents
+=================
+<!--ts-->
+   * [Features](#features)
+   * [Setting Up A Development Environment](#setting-up-a-development-environment)
+   * [Enhancements and Improvements](#enhancements-and-improvements)
+<!--te-->
 
-### `npm start`
+Features
+========
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Sending Messages
+![Alt text](images/sending-messages.gif?raw=true "Sending Messages")
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Receiving messages
+![Alt text](images/receiving-messages.gif?raw=true "Receiving Messages")
 
-### `npm test`
+## Typing Indicator
+![Alt text](images/typing-indicator.gif?raw=true "Receiving Messages")
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**NOTE:** If you don't see the typing indicator when you test this that means you are logged in to the same account (they are assigned randomly). Refresh one of the browsers you are testing with to login as a different user.
 
-### `npm run build`
+Setting Up A Development Environment
+====================================
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**NOTE:** I developed this application using Node v10.13.0 and Yarn v1.12.3. If you experience any installation or development issues please ensure you are using the same (or close) versions.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+1. In order to setup the application locally, clone the repo:
+```
+$ git clone https://github.com/nryoung/prattle.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Next install all the dependencies needed:
+```
+$ yarn install
+```
 
-### `npm run eject`
+3. If you haven't created a [Chatkit](https://pusher.com/chatkit) free account, you will need to now. You will then need to get the relevant values from your account and add them to your `.env` like so (at the root of the repo):
+```
+REACT_APP_INSTANCE_LOCATOR="<instance locator value here>"
+REACT_APP_TOKEN_PROVIDER="<token provider value here>"
+REACT_APP_ROOM="<room id here>"
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  **NOTE:** all of these values can be found under the `Settings` tab on your account. Dotenv will then automatically inject these values during build time to the places in the application that need them.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. The next and final thing to do is is start up the application for the first time:
+```
+$ yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. If your feeling extra ambitious you can always run the tests via:
+```
+$ yarn test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Enhancements and Improvements
+=============================
 
-## Learn More
+While developing this application I ran in to a list of things that I would love to improve to make both the user and developer experience better if given more time.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Ability to add new users and user authentication
+The [Chatkit SDK](https://pusher.com/chatkit) only allows the creation of new users if you are running your own server with their SDK running on it. The ability to add new users along with user authentication would be necessary in the future development of this application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### a11y Support
+When building this application so quickly I definitely did not have to time to think about a11y support. If I continued I would think about adding support right away as it is easier to add at the beginning than at the end.
 
-### Code Splitting
+#### Loading States
+There are no loading states or placeholders in the application currently. In the future it would be nice to add loading states, animations and placeholders so that components and data don't randomly render on the screen when they are done loading, potentially disorienting the user.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### Internationalization
+Adding international support and translations to an application is much easier to do at the beginning of applications life than when it is more mature. I would use a library like [React Intl](https://github.com/yahoo/react-intl) to do this.
 
-### Analyzing the Bundle Size
+#### Error handling when sending or receiving messages
+If the application fails to send or receive a message there is no error handling or error alert UI to let the user know that it failed. Adding error handling and the corresponding UI would allow for a better user experience.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### CDN for hosting images
+The background image to the application, which is rather large, is served locally via the application itself. In the future, this image should be moved to a CDN like [Cloudinary](https://cloudinary.com/) which would be able to serve all images much quicker than the application ever could.
 
-### Making a Progressive Web App
+#### Support for more screen sizes
+The application only supports standard size mobile device (iPhone6 and up) and standard desktop screen sizes. You can see where I define those breakpoints [here](https://github.com/nryoung/prattle/blob/master/src/styles/media.js). I would like to expand the supported screen size for small devices like the iPhone5 as well as extra wide and HD screens.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### Standardize pixel sizes or use CSS grid for standard columns and rows.
+Chat applications are pretty standard layout wise. I would standardize the pixel sizes throughout the application. I would also seriously consider using something like CSS grid to make the layout even easier.
 
-### Advanced Configuration
+#### Comprehensive tests
+The tests at the moment are only really doing snapshot testing. If given more time, I would love to add more functional tests to make sure things are getting called correctly when components mount and other component functionality. Also, I would probably move over to using [Enzyme](https://github.com/airbnb/enzyme) as the test render as it is performant and easily allows for shallow and fully mounted rendering.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### Organization of components
+The components right now are organized in a very flat tree structure. As this application grows in complexity we would definitely want to define a more organized component structure to make the code easier to navigate.
 
-### Deployment
+#### Support for other browsers
+Testing on this application was only done with the latest version of Chrome and Firefox. As development continued we would want to make sure to support the latest version of Microsoft Edge and any versions of Internet Explorer that we would need to support.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### Animations
+The user experience could be improved drastically by adding animations for when a user receives a new message and sends a new message. Currently, they just pop in to the screen.
 
-### `npm run build` fails to minify
+#### Webpack resolve path option
+As this application grows in complexity and the directory structure becomes larger I would want to add [Webpack resolve option](https://webpack.js.org/configuration/resolve/) that would allow us to turn relative imports that look like this:
+```
+import module from '../../../directory/module'
+```
+into ones that look like this:
+```
+import module from 'components/directory/module'
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Better defined prop types
+This one is pretty minor, although important. Some of the prop types I have defined are using `PropTypes.object` which is not ideal since we want to explicitly define what properties and values in the object that we are passing in as props are.
+
+#### Add the Styled Components Babel plugin
+This one is also minor, but provides a much better developer experience when inspecting and troubleshooting issues in the DOM. [The Styled Components Babel Plugin](https://github.com/styled-components/babel-plugin-styled-components) not only adds this but a bunch of other functionality that is extremely useful.
