@@ -80,6 +80,9 @@ Adding international support and translations to an application is much easier t
 #### Error handling when sending or receiving messages
 If the application fails to send or receive a message there is no error handling or error alert UI to let the user know that it failed. Adding error handling and the corresponding UI would allow for a better user experience.
 
+#### Linting and Prettier
+I would add a more robust rule set for ESLint that what is currently in place and I would add [Prettier](https://github.com/prettier/prettier) either as a pre commit hook or make sure that a standard perttier config is used by all developers on the team.
+
 #### CDN for hosting images
 The background image to the application, which is rather large, is served locally via the application itself. In the future, this image should be moved to a CDN like [Cloudinary](https://cloudinary.com/) which would be able to serve all images much quicker than the application ever could.
 
