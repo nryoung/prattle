@@ -41,14 +41,12 @@ $ git clone https://github.com/nryoung/prattle.git
 $ yarn install
 ```
 
-3. If you haven't created a [Chatkit](https://pusher.com/chatkit) free account, you will need to now. You will then need to get the relevant values from your account and add them to your `.env` like so (at the root of the repo):
+3. Normally values like these would be shared via a password vault or only be defined in CI, but since this is a sample application we can use the values from my account. You will then need to set the relevant values in your `.env` like so (at the root of the repo):
 ```
-REACT_APP_INSTANCE_LOCATOR="<instance locator value here>"
-REACT_APP_TOKEN_PROVIDER="<token provider value here>"
-REACT_APP_ROOM="<room id here>"
+REACT_APP_INSTANCE_LOCATOR="v1:us1:6afbc5bc-7300-4a33-897b-5031bd310fa3"
+REACT_APP_TOKEN_PROVIDER="https://us1.pusherplatform.io/services/chatkit_token_provider/v1/6afbc5bc-7300-4a33-897b-5031bd310fa3/token"
+REACT_APP_ROOM="19756885"
 ```
-
-  **NOTE:** all of these values can be found under the `Settings` tab on your account. Dotenv will then automatically inject these values during build time to the places in the application that need them.
 
 4. The next and final thing to do is is start up the application for the first time:
 ```
