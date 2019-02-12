@@ -2,7 +2,7 @@ Prattle
 ======
 Prattle is a [Twin Peaks](https://en.wikipedia.org/wiki/Twin_Peaks) themed chat application Built in React. Prattle makes use of the [Chatkit SDK](https://pusher.com/chatkit).
 
-## Check out a live version of Prattle here
+## [Check out a live version of Prattle here](https://prattle.netlify.com/)
 
 Table of Contents
 =================
